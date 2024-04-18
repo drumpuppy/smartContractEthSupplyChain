@@ -23,32 +23,35 @@ contract ProductManager is Ownable, WhitelistManager, AccessControl {
     uint256 public nextProductId;
 
     event ProductCreated(uint256 indexed productId, string productName);
-    event OwnershipTransferred(uint256 indexed productId, address indexed previousOwner, address indexed newOwner);
+    event ProductOwnershipTransferred(uint256 indexed productId, address indexed previousOwner, address indexed newOwner);
 
-    constructor() Ownable() {
+    constructor() {
         nextProductId = 0;
     }
 
-    function createProduct(string memory name, uint256 lotNumber, uint256 totalPerLot, address manufacturer) public onlyOwner {
+    function createProduct(string memory name, uint256 lotNumber, uint256 totalPerLot, address manufacturer) public onlyRole(2) { // Assuming role 2 is Manufacturer
+        require(isWhitelisted(manufacturer), "ProductManager: Manufacturer must be whitelisted");
         products.push(Product({
             id: nextProductId,
             name: name,
             lotNumber: lotNumber,
             totalPerLot: totalPerLot,
             manufacturer: manufacturer,
-            currentOwner: manufacturer,  // Initially, the manufacturer owns the product
-            purchaseDate: block.timestamp  // Timestamp of product creation
+            currentOwner: manufacturer,
+            purchaseDate: block.timestamp
         }));
         emit ProductCreated(nextProductId, name);
         nextProductId = nextProductId.add(1);
     }
 
     function transferProductOwnership(uint256 productId, address newOwner) public {
-        require(msg.sender == products[productId].currentOwner, "ProductManager: caller is not the current owner");
+        require(msg.sender == products[productId].currentOwner, "ProductManager: caller is not the product owner");
+        require(productId < nextProductId, "ProductManager: invalid product ID");
+
         address previousOwner = products[productId].currentOwner;
         products[productId].currentOwner = newOwner;
-        products[productId].purchaseDate = block.timestamp;  // Update purchase date on transfer
-        emit OwnershipTransferred(productId, previousOwner, newOwner);
+        products[productId].purchaseDate = block.timestamp;
+        emit ProductOwnershipTransferred(productId, previousOwner, newOwner);
     }
 
     function getProductDetails(uint256 productId) public view returns (Product memory) {

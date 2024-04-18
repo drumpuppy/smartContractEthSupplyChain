@@ -15,31 +15,6 @@
 				"inputs": [
 					{
 						"indexed": true,
-						"internalType": "uint256",
-						"name": "productId",
-						"type": "uint256"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "previousOwner",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "newOwner",
-						"type": "address"
-					}
-				],
-				"name": "OwnershipTransferred",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
 						"internalType": "address",
 						"name": "previousOwner",
 						"type": "address"
@@ -71,6 +46,31 @@
 					}
 				],
 				"name": "ProductCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "ProductOwnershipTransferred",
 				"type": "event"
 			},
 			{
@@ -467,11 +467,11 @@
 			]
 		},
 		"contracts/ProductManager.sol": {
-			"keccak256": "0xdf14e12985bf7439a08dc7bf8baa820a0a3a2e97b0654bfe00ecf83aec2b7480",
+			"keccak256": "0x2bdf6bc41bac00cac8f45102f255fd505bc8b976bfc45a096f1ec5c78d723ee0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://200b3f5a1276640f51aecb6e2b3678f7ed820414e324deaa516b97e10d6016fd",
-				"dweb:/ipfs/QmcsffBdDRui7jG5DfAS66UEMzfrGLcj2yQeooFK8JnpSz"
+				"bzz-raw://b1dbeb3f6897e026bdee3359e91d88dcc1837068f4b0ee9ecc6fe923f90344f8",
+				"dweb:/ipfs/QmWQYdkcEZThBz1KoPc33sdo9UzyivrB8s2GZuJc9QSPKy"
 			]
 		},
 		"contracts/SafeMath.sol": {
