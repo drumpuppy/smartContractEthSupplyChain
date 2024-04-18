@@ -2,9 +2,11 @@
 pragma solidity ^0.8.0;
 
 import "./Ownable.sol";
+import "./WhitelistManager.sol";
+import "./AccessControl.sol";
 import "./SafeMath.sol";
 
-contract ProductManager is Ownable {
+contract ProductManager is Ownable, WhitelistManager, AccessControl {
     using SafeMath for uint256;
 
     struct Product {
@@ -53,4 +55,5 @@ contract ProductManager is Ownable {
         require(productId < nextProductId, "ProductManager: invalid product ID");
         return products[productId];
     }
+
 }

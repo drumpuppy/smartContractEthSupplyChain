@@ -74,6 +74,101 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					}
+				],
+				"name": "RoleAssigned",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "oldRole",
+						"type": "uint256"
+					}
+				],
+				"name": "RoleRevoked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "WhitelistedAddressAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "WhitelistedAddressRemoved",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "addAddressToWhitelist",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "role",
+						"type": "uint256"
+					}
+				],
+				"name": "assignRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -158,6 +253,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "isWhitelisted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "nextProductId",
 				"outputs": [
@@ -236,6 +350,51 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "removeAddressFromWhitelist",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "revokeRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "roles",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "newOwner",
 						"type": "address"
 					}
@@ -291,6 +450,14 @@
 		"remappings": []
 	},
 	"sources": {
+		"contracts/AccessControl.sol": {
+			"keccak256": "0xc231177964b0d43d103a457c25cbbeb769165591bc9aff1d96d9282611e2422f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9bdb9f0e1d38d868d90fba305d44c92f2200294b9526d409f13263861718187c",
+				"dweb:/ipfs/QmUJVS49DgWTipEj4HsGqnB5fqvHHyKHH1zVvtUxtzRwDA"
+			]
+		},
 		"contracts/Ownable.sol": {
 			"keccak256": "0x27a89d4e56725adf1210137aa6f9d3fb1a61784dfbead063ec91a3566f3c9195",
 			"license": "MIT",
@@ -300,11 +467,11 @@
 			]
 		},
 		"contracts/ProductManager.sol": {
-			"keccak256": "0x8136ce0d17f7f4c8487b38da3164c78972e507d9fe2ccc92dc97f1c1e972fea7",
+			"keccak256": "0xb806ee744f8aace33543de8535660069856f324439cb5356374a02744c77f6aa",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4faedc384f41e612afce86398f92a751b6add358ea81854d4cf12d27e4bb1e83",
-				"dweb:/ipfs/QmXHqv5iJsG39U7uRbGpCpC3F6xARYYubjgrfjkApML8RB"
+				"bzz-raw://dce852b854d7facd9e9a1f7a26f8878ec989a0021c991c150d109bfaa8216506",
+				"dweb:/ipfs/QmdScQjqCpbKrGijyC8yh1dopwc35riKonvmEriFWd9yn5"
 			]
 		},
 		"contracts/SafeMath.sol": {
@@ -313,6 +480,14 @@
 			"urls": [
 				"bzz-raw://67ad3f48a36ede29c950e0bcfed55dffaa8c0dc9e9f2fae5722fb785736b1a0e",
 				"dweb:/ipfs/QmcyoSbskzcKCgynEnTKjjfotZ7J4ECyHrVfdD4TFvWhGH"
+			]
+		},
+		"contracts/WhitelistManager.sol": {
+			"keccak256": "0xd614ca98e7222bf8c16e60274b4e1851e87a119b16d6ba06e1c62aa6feddaee5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ac3786b49f235ae526aa37a5b34e9a0030192dec082fe4f07063e2709b8cdd11",
+				"dweb:/ipfs/QmP1bDhfc6TSZMA9LhPthcZU4KxsE7nggHbTSTioS7bEKC"
 			]
 		}
 	},

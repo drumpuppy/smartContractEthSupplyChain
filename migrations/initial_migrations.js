@@ -1,6 +1,6 @@
-const MainContract = artifacts.require("MainContract");
+const ProductManager = artifacts.require("ProductManager");
 
 module.exports = function (deployer) {
-  deployer.deploy(MainContract);
+  deployer.deploy(ProductManager);
 };
 
