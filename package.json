@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@remix-project/remixd": "^0.6.30"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.1.15",
+    "ganache-cli": "^6.12.2"
+  }
+}

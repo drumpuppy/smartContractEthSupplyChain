@@ -1,23 +1,18 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const fs = require('fs');
-const mnemonic = fs.readFileSync(".secret").toString().trim();
+
 
 module.exports = {
   networks: {
-    sepolia: {
-      provider: () => new HDWalletProvider(mnemonic, `https://sepolia.infura.io/v3/YOUR_INFURA_PROJECT_ID`),
-      network_id: 11155111,
-      gas: 5500000,
-      confirmations: 2,
-      timeoutBlocks: 200,
-      skipDryRun: true
+    // Add a development network
+    development: {
+      host: "127.0.0.1", // Localhost
+      port: 7545,        // Standard Ganache UI port
+      network_id: "*",   // Any network (default: none)
     },
   },
-
-  // Configure your compilers
   compilers: {
     solc: {
-      version: "^0.8.0"
+      version: "^0.8.0" // Fetch exact version from solc-bin
     }
   }
 };
