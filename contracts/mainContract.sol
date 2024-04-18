@@ -10,8 +10,6 @@ contract MainContract is Ownable, WhitelistManager, ProductManager, AccessContro
     // Using SafeMath for safe arithmetic operations
     using SafeMath for uint256;
 
-    constructor() Ownable() {}
-
     // Function to add an address to the whitelist
     function addToWhitelist(address addr) public onlyOwner {
         super.addAddressToWhitelist(addr);
