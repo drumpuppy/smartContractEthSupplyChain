@@ -55,5 +55,4 @@ contract ProductManager is Ownable, WhitelistManager, AccessControl {
         require(productId < nextProductId, "ProductManager: invalid product ID");
         return products[productId];
     }
-
 }
