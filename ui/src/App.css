@@ -1,14 +1,101 @@
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* App.css */
+.App {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-ul {
-  list-style-type: none;
+.App-header {
+  background-color: #282c34;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.form-section {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  
+}
+
+.form-section h2 {
+  color: #282c34;
+}
+
+.form-control {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control label {
+  margin-bottom: 5px;
+}
+
+.form-control input,
+.form-control select,
+.form-control button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  
+}
+
+.form-control button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-control button:hover {
+  background-color: #45a049;
+}
+
+.product-details {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.form-group {
+  padding-top: 20px; /* Adds space inside each form-group, at the bottom */
+}
+
+.button-group button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #2086ee; /* A pleasant blue */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-group button:hover {
+  background-color: #1066cc; /* A slightly darker blue on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button-group button:active {
+  background-color: #0d559f; /* Even darker for the active state */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-group button:disabled {
+  background-color: #a0b9d9; /* A muted color when the button is disabled */
+  cursor: not-allowed;
 }

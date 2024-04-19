@@ -1,18 +1,22 @@
-const HDWalletProvider = require('@truffle/hdwallet-provider');
-
-
 module.exports = {
   networks: {
-    // Add a development network
     development: {
-      host: "127.0.0.1", // Localhost
-      port: 7545,        // Standard Ganache UI port
-      network_id: "*",   // Any network (default: none)
+      host: "127.0.0.1",
+      port: 7545, // Make sure this matches the Ganache port
+      network_id: "*", // Match any network ID
+      gas: 6721975, // Increase the gas limit to the maximum allowed on Ganache
     },
   },
   compilers: {
     solc: {
-      version: "^0.8.0" // Fetch exact version from solc-bin
+      version: "0.8.0", 
+      settings: {
+        optimizer: {
+          enabled: true, // Enable the optimizer for more efficient bytecode
+          runs: 200
+        },
+        evmVersion: "istanbul"
+      }
     }
   }
 };
